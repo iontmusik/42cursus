@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtorre-s <jtorre-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/25 20:09:05 by jtorre-s          #+#    #+#             */
-/*   Updated: 2022/04/09 14:47:30 by jtorre-s         ###   ########.fr       */
+/*   Created: 2022/04/09 11:56:42 by jtorre-s          #+#    #+#             */
+/*   Updated: 2022/04/09 20:01:33 by jtorre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PRINTF_H
+# define PRINTF_H
 
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*str;
+# include <string.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <stdio.h>
 
-	str = malloc(count * size);
-	if (size >= SIZE_MAX)
-		return (NULL);
-	if (str == '\0')
-		return (NULL);
-	ft_bzero(str, count * size);
-	return (str);
-}
+int		ft_putchar(char c);
+int		ft_string(char s);
+int		ft_number(int n);
+int		ft_variables(char let, va_list lst);
+int		ft_decimal(int n);
+int		ft_unsigned_dec(unsigned int n);
+int		ft_hexa_min(unsigned int );
+int		ft_hexa_may(int n);
+
+#endif

@@ -6,15 +6,13 @@
 /*   By: jtorre-s <jtorre-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 20:28:50 by jtorre-s          #+#    #+#             */
-/*   Updated: 2022/03/26 00:51:31 by jtorre-s         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:47:02 by jtorre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <xlocale.h>
 
 int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
-		c -= 32;
+		c -= ('a' - 'A');
 	return (c);
 }

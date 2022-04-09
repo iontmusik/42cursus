@@ -6,12 +6,11 @@
 /*   By: jtorre-s <jtorre-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 21:29:20 by jtorre-s          #+#    #+#             */
-/*   Updated: 2022/03/25 23:30:31 by jtorre-s         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:43:21 by jtorre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<string.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

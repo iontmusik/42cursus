@@ -6,12 +6,11 @@
 /*   By: jtorre-s <jtorre-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 20:10:36 by jtorre-s          #+#    #+#             */
-/*   Updated: 2022/03/26 00:42:48 by jtorre-s         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:41:38 by jtorre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
-#include<stdio.h>
 
 int	ft_isalnum(int a)
 {

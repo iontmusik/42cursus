@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_unsigned_dec.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtorre-s <jtorre-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/25 20:09:05 by jtorre-s          #+#    #+#             */
-/*   Updated: 2022/04/09 14:47:30 by jtorre-s         ###   ########.fr       */
+/*   Created: 2022/04/09 15:38:31 by jtorre-s          #+#    #+#             */
+/*   Updated: 2022/04/09 16:04:45 by jtorre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int	ft_unsigned_dec(unsigned int n)
 {
-	void	*str;
+	int	nbr;
 
-	str = malloc(count * size);
-	if (size >= SIZE_MAX)
-		return (NULL);
-	if (str == '\0')
-		return (NULL);
-	ft_bzero(str, count * size);
-	return (str);
+	nbr = 0;
+	if (n > 9)
+		nbr += ft_unsigned_dec(n / 10);
+	nbr += ft_putchar(n % 10) + '\0';
+	return (nbr);
 }

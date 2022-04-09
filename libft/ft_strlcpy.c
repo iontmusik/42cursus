@@ -6,33 +6,30 @@
 /*   By: jtorre-s <jtorre-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 20:24:07 by jtorre-s          #+#    #+#             */
-/*   Updated: 2022/03/25 22:52:58 by jtorre-s         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:46:04 by jtorre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<unistd.h>
-#include<string.h>
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int	i;
+	int				i;
+	unsigned int	j;
 
-	i = 0;
-	while (src[i] != '\0')
-		i++;
-	if ((int)dstsize == 0)
-		return (i);
-	i = 0;
-	while (src[i] && i < (int)dstsize -1)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
 	i = 0;
 	while (src[i])
 		i++;
+	j = 0;
+	if (dstsize > 0)
+	{
+		while (src[j] && j < (unsigned int) dstsize -1)
+		{
+			dst[j] = (char) src[j];
+			j++;
+		}
+		dst[j] = '\0';
+	}
 	return (i);
 }
 

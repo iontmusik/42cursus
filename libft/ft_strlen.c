@@ -6,11 +6,11 @@
 /*   By: jtorre-s <jtorre-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 20:24:36 by jtorre-s          #+#    #+#             */
-/*   Updated: 2022/03/25 20:24:48 by jtorre-s         ###   ########.fr       */
+/*   Updated: 2022/04/01 23:44:29 by jtorre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	a;
 

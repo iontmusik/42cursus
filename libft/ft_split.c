@@ -6,82 +6,107 @@
 /*   By: jtorre-s <jtorre-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 20:19:22 by jtorre-s          #+#    #+#             */
-/*   Updated: 2022/03/31 11:27:25 by jtorre-s         ###   ########.fr       */
+/*   Updated: 2022/04/09 19:18:42 by jtorre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include<stdio.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-void	*ft_calloc(size_t count, size_t size);
-
-int	ft_cont(char *s, char c)
-{
-	int		b;
-	int		a;
-
-	a = 0;
-	b = 0;
-	while (s[a])
-	{
-		while (s[a] && s[a] == c)
-			s++;
-		while (s[a] && s[a] != c)
-		{
-			s[a]++;
-			if (s[a] - 1 != c)
-				b++;
-		}
-	}
-	return (b + 1);
-}
-
-char	**ft_split(char *str, char c)
+static int	ft_cont_lines(char const *s, char c)
 {
 	int		i;
-	int		j;
+	int		lines;
+
+	i = 0;
+	lines = 0;
+	while (s[i])
+	{
+		while (s[i] && s[i] == c)
+			i++;
+		while (s[i] && s[i] != c)
+		{
+			if (i == 0 || s[i - 1] == c)
+				lines++;
+			i++;
+		}
+	}
+	return (lines);
+}
+
+static void	ft_free(char **wtf, int point)
+{
+	int	i;
+
+	i = 0;
+	while (i < point)
+	{
+		free(wtf[i]);
+		i++;
+	}
+	free(wtf);
+}
+
+static int	ft_array(const char *s, int lines, char c, char **wtf)
+{
+	int	i;
+	int	j;
+	int	point;
+
+	i = 0;
+	point = 0;
+	lines = ft_cont_lines(s, c);
+	while (s[i] && point < lines)
+	{
+		while (s[i] && s[i] == c)
+			i++;
+		j = i;
+		while (s[i] && s[i] != c)
+			i++;
+		wtf[point++] = ft_substr(s, j, i - j);
+		if (wtf[point - 1] == NULL)
+		{
+			ft_free(wtf, point);
+			return (-1);
+		}
+	}
+	return (point);
+}
+
+char	**ft_split(char const *s, char c)
+{
 	char	**wtf;
+	int		lines;
 	int		point;
 
-	point = 0;
-	i = 0;
-	if (!str)
+	if (!s)
 		return (NULL);
-	wtf = ft_calloc(ft_cont(str, c), 1);
-	while (str[i])
-	{
-		while (str[i] && str[i] == c)
-		{
-			i++;
-		}
-		j = i;
-		while (str[i] && str[i] != c)
-		{
-			i++;
-//			j++;
-		}
-	wtf[point] = ft_substr(str, j, i - j + 1);
-	point++;
-	}
+	lines = ft_cont_lines(s, c);
+	wtf = malloc(sizeof(char *) * (lines + 1));
+	if (wtf == NULL)
+		return (NULL);
+	point = ft_array(s, lines, c, wtf);
+	if (point == -1)
+		return (NULL);
+	wtf[point] = NULL;
 	return (wtf);
 }
 
-int	main(void)
+/*int	main(void)
 {
-	char		*s = "Hola que tal estas";
-	char		c;
-	char		**a;
-	int			b;
+	char	s[] = "";
+	 char	c;
+	 int		b;
+	 char	**a;
 
-	b = 0;
-	c = ' ';
-	printf("%s", s);
-	a = ft_split(s, c);
-	while (a[b])
-	{
-		printf("%s\n", a[b]);
-		b++;
-	}
+	printf("%d", ft_cont_lines(s, ' '));
+	 c = ' ';
+	 b = 0;
+	 a = ft_split(s, c);
+	 while (a[b])
+	 {
+	 	printf("%s\n", a[b]);
+	 	b++;
+	 }
+	 system("leaks a.out");
 	return (0);
-}
+}*/

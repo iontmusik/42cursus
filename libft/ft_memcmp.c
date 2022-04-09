@@ -6,12 +6,11 @@
 /*   By: jtorre-s <jtorre-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 20:16:59 by jtorre-s          #+#    #+#             */
-/*   Updated: 2022/03/26 00:31:33 by jtorre-s         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:44:33 by jtorre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<string.h>
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

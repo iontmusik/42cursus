@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtorre-s <jtorre-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 15:16:13 by jtorre-s          #+#    #+#             */
-/*   Updated: 2022/03/31 18:47:55 by jtorre-s         ###   ########.fr       */
+/*   Created: 2022/04/02 20:08:29 by jtorre-s          #+#    #+#             */
+/*   Updated: 2022/04/06 14:32:33 by jtorre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include<stdio.h>
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),	void (*del)(void *))
 {
-	int	i;
+	t_list	*newlist;
+	t_list	*newele;
+	t_list	*aux;
 
-	i = 0;
-	if (lst == NULL)
-		return (NULL);
+	newlist = NULL;
+	aux = lst;
+	while (aux)
 	{
-		lst = lst->next;
-		i++;
+		newele = ft_lstnew((*f)(aux->content));
+		if (!newele)
+		{
+			ft_lstclear(&newlist, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&newlist, newele);
+		aux = aux->next;
 	}
-	i++;
-	return (i);
-}
-
-int	main(void)
-{
-	char	valor;
-	t_list	*lst;
-
-	printf("%d", ft_lstsize(lst));
-	return (0);
+	return (newlist);
 }

@@ -6,13 +6,11 @@
 /*   By: jtorre-s <jtorre-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 20:06:49 by jtorre-s          #+#    #+#             */
-/*   Updated: 2022/03/25 22:51:42 by jtorre-s         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:41:17 by jtorre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {
@@ -45,7 +43,7 @@ int	ft_atoi(const char *str)
 
 /*int	main(void)
 {
-	const char	str[] = "   -86479";
+	const char	str[] = "2147445745783649";
 
 	printf("%d", ft_atoi(str));
 	printf("\n%d", atoi(str));

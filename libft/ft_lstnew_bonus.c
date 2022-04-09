@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtorre-s <jtorre-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 11:56:12 by jtorre-s          #+#    #+#             */
-/*   Updated: 2022/03/31 21:29:42 by jtorre-s         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:42:41 by jtorre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include<stdio.h>
 
-t_list	*ft_lstnew(void *valor)
+t_list	*ft_lstnew(void *content)
 {	
 	t_list	*list;
 
 	list = malloc(sizeof(t_list));
-	list->content = valor;
+	if (!list)
+		return (NULL);
+	list->content = content;
 	list->next = NULL;
 	return (list);
 }

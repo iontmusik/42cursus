@@ -6,44 +6,47 @@
 /*   By: jtorre-s <jtorre-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 20:23:07 by jtorre-s          #+#    #+#             */
-/*   Updated: 2022/03/25 22:52:53 by jtorre-s         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:46:00 by jtorre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<string.h>
-#include"libft.h"
+#include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int		srcsize;
-	int		i;
-	int		o;
+	size_t	i;
+	size_t	len2;
+	size_t	len1;
+	size_t	cut;
+	size_t	res;
 
-	srcsize = ft_strlen((char *)src);
-	if ((int)dstsize == 0)
-		return (srcsize);
-	o = ft_strlen((char *)dst);
-	if ((int)dstsize >= o)
-		return (dstsize + srcsize);
-	i = 0;
-	while (dstsize && (--dstsize - o) && src[i])
+	cut = 0;
+	len1 = ft_strlen(src);
+	if (!dst && !size)
+		return (len1);
+	len2 = ft_strlen(dst);
+	if (size > len2)
 	{
-		dst[o + 1] = src[i];
-		i++;
+		cut = size - len2 - 1;
+		res = len2 + len1;
 	}
-	dst[dstsize + i] = '\0';
-	return (srcsize + o);
+	else
+		res = len1 + size;
+	i = 0;
+	while (i < cut && src[i])
+		dst[len2++] = src[i++];
+	if (cut)
+		dst[len2] = '\0';
+	return (res);
 }
-
 /*int	main(void)
 {
-	const char	src[] = "hola que ";
-	char		dst[60] = "tal";
-	int			dstsize;
+	char	dst[] = "hoftdfc";
+	char	src[] = "nasdadadas";
+	size_t	dstsize;
 
-	dstsize = 12;
-	printf("%zu\n", ft_strlcat(dst, src, dstsize));
-	printf("%zu", strlcat(dst, src, dstsize));
-	return (0);
+	dstsize = 3;
+//	printf("%zu\n", ft_strlcat(dst, src, dstsize));
+	strlcat(dst, src, dstsize);
+	printf("%s\n", dst);
 }*/

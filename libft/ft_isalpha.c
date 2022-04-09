@@ -6,13 +6,11 @@
 /*   By: jtorre-s <jtorre-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 20:12:32 by jtorre-s          #+#    #+#             */
-/*   Updated: 2022/03/26 00:41:31 by jtorre-s         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:49:00 by jtorre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<unistd.h>
-#include<ctype.h>
+#include "libft.h"
 
 int	ft_isalpha(int a)
 {

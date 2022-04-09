@@ -6,29 +6,33 @@
 /*   By: jtorre-s <jtorre-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 20:28:07 by jtorre-s          #+#    #+#             */
-/*   Updated: 2022/03/25 22:53:25 by jtorre-s         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:46:50 by jtorre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*str;
-	int		i;
+	char		*str;
+	size_t		i;
+	size_t		lencom;
 
 	i = 0;
-	str = malloc(len);
-	if (str == '\0')
+	if (!s)
 		return (NULL);
-	while (i < (int)len)
-	{	
-		str[i] = s[start];
-		i++;
-		start++;
+	lencom = ft_strlen(s);
+	if (len > lencom)
+		len = lencom;
+	str = malloc(len + 1);
+	if (!str)
+		return (NULL);
+	if (start < lencom)
+	{
+		while (i < len)
+			str[i++] = s[start++];
 	}
+	str[i] = '\0';
 	return (str);
 }
 
@@ -42,4 +46,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	start = 5;
 	printf("%s\n", ft_substr(s, start, len));
 	return (0);
-}*/
+}
+*/

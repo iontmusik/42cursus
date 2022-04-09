@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtorre-s <jtorre-s@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/25 20:09:05 by jtorre-s          #+#    #+#             */
-/*   Updated: 2022/04/09 14:47:30 by jtorre-s         ###   ########.fr       */
+/*   Created: 2022/04/06 17:53:24 by jtorre-s          #+#    #+#             */
+/*   Updated: 2022/04/09 13:43:34 by jtorre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdarg.h>
+#include "printf.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int	ft_printf(char *s, ...)
 {
-	void	*str;
+	
+}
 
-	str = malloc(count * size);
-	if (size >= SIZE_MAX)
-		return (NULL);
-	if (str == '\0')
-		return (NULL);
-	ft_bzero(str, count * size);
-	return (str);
+int	main (void)
+{
+	ft_printf()
 }
